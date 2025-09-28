@@ -1,0 +1,32 @@
+<service>
+	<id>collegescreenagent.exe</id>
+	<name>CollegeScreenAgent</name>
+	<description>Агент для захвата экрана и стриминга на сервер</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<argument>--harmony</argument>
+	<argument>C:\screen-sharing-system\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\screen-sharing-system\client\index.js</argument>
+	<argument>--scriptoptions=</argument>
+	<argument>--log</argument>
+	<argument>CollegeScreenAgent wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<logmode>rotate</logmode>
+	<logpath>C:/screen-sharing-system/logs</logpath>
+	<stoptimeout>30sec</stoptimeout>
+	<serviceaccount>
+		<domain>MISTERLYANOVSKI</domain>
+		<user>LocalSystem</user>
+		<password></password>
+	</serviceaccount>
+	<workingdirectory>C:\screen-sharing-system\build</workingdirectory>
+</service>

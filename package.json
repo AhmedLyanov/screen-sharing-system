@@ -3,17 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd client && node index.js",
+    "server": "cd server && node index.js",
+    "build": "cd build && node service.js",
+    "del": "cd build && node delete.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "express-basic-auth": "^1.2.1",
     "ffmpeg-static": "^5.2.0",
+    "node-windows": "^1.0.0-beta.8",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1"
   }

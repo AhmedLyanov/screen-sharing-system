@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const path = require('path');
-const authorization = require("express-basic-auth")
+const authorization = require("express-basic-auth");
 
 const app = express();
 const server = http.createServer(app);
@@ -12,10 +12,13 @@ const io = new Server(server, {
 
 
 app.use('/index.html', authorization({
-  users: {'Amhadovam':"Xuh40150"},
+  users: { 'Amkhadovam': "Xuh40150" },
   challenge: true
-}))
+}));
+
+
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 io.on('connection', socket => {
   const { role, room, id } = socket.handshake.query;
@@ -25,8 +28,6 @@ io.on('connection', socket => {
 
   if (role === 'student') {
     socket.on('frame-binary', (data) => {
-      
-      
       socket.to(room).emit('student-frame-binary', { id, frame: data });
     });
   }
@@ -38,4 +39,4 @@ io.on('connection', socket => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, ()=>console.log(`Server listening ${PORT}`));
+server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
