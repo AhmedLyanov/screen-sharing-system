@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Live View • Classroom Monitoring</title>
+  <title>High Efficiency Live Link Observer</title>
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="header-container">
     <div class="header-top">
-      <div class="header-title">H.E.L.L.O</div>
-      <div class="room-display">
-        Аудитория: 
-        <span class="room-badge" id="room"></span>
+      <div class="header-title">
+        <picture>
+          <img class="logotype-software" src="assets/logotype.svg" width="350" height="150" alt="Logotypr">
+        </picture>
       </div>
     </div>
     
@@ -38,8 +39,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const ROOM = new URLSearchParams(location.search).get('room') || 'paris';
-    const ID = 'teacher-' + Math.random().toString(36).slice(2,8);
-    document.getElementById('room').innerText = ROOM;
+    const ID = "teacher"
+   
 
     document.querySelectorAll('.nav-link').forEach(link => {
       if (link.getAttribute('href').includes(ROOM)) {
@@ -120,8 +121,6 @@
       if (students[id]) {
         students[id].card.remove();
         delete students[id];
-        
-       
         if (Object.keys(students).length === 0) {
           emptyState.style.display = 'block';
         }
@@ -129,13 +128,9 @@
     });
 
     socket.on('connect', () => {
-      console.log('connected as teacher to room', ROOM);
-      document.getElementById('connectionStatus').textContent = 'Подключено к серверу';
+      document.getElementById('connectionStatus').textContent = 'Connected';
     });
 
-    socket.on('disconnect', () => {
-      document.getElementById('connectionStatus').textContent = 'Соединение потеряно';
-    });
   </script>
 </body>
 </html>

@@ -55,13 +55,9 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-.room-display {
-  font-size: 18px;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.logotype-software{
+  width: 220px;
+  height: auto;
 }
 
 .room-badge {
@@ -71,6 +67,7 @@ body {
   font-size: 14px;
   font-weight: 600;
 }
+
 
 
 
@@ -94,18 +91,13 @@ body {
   transition: all 0.3s ease;
   padding: 8px 16px;
   border: 1px solid transparent;
-  border-radius: 8px;
   font-size: 14px;
   background: rgba(255, 255, 255, 0.05);
   white-space: nowrap;
 }
 
 .nav a:hover {
-  opacity: 1;
-  background: rgba(95, 97, 252, 0.2);
   border-color: var(--accent-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(95, 97, 252, 0.3);
 }
 
 .nav a.active {
